@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="find.css">
+    <title>FOUND</title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <h1>REPORT A FOUND ITEM</h1>
+    <div id="wrapper">
+        <div id="formDiv">
+            <br>
+            <br>
+            <h5>* All fields are mandatory. Please make sure all required fields are filled out correctly.</h5>
+            <form method="POST" enctype="multipart/form-data">
+                <br/>
+                <label class="labelClass"> Category: </label>
+                <br/>
+                <select name="dd1">
+                    <option value="">Choose category</option>
+                    <option value="object">Object</option>
+                    <option value="animals">Animals</option>
+                    <option value="bag">Bags/Luggage</option>
+                    <option value="money">Money</option>
+                    <option value="electronics">Electronics</option>
+                    <option value="jewelry">Jewelry</option>
+                    <option value="medical">Medical equipment</option>
+                    <option value="accesories">Accesories</option>
+                    <option value="toys">Toys</option>
+                    <option value="id">Documents</option>
+                    <option value="else">Something else</option>
+                </select>
+                <br/>
+                <br/>
+                <label class="labelClass"> Name: </label>
+                <br/>
+                <input type="text" placeholder="What did you find?    " name="nume" required>
+                <br/>
+                <br/>
+                <label class="labelClass"> City: </label>
+                <br/>
+                <select name="dd2">
+                    <option value="">Choose city</option>
+                    <option value="Alba">Alba</option>
+                    <option value="Arad">Arad</option>
+                    <option value="Arges">Arges</option>
+                    <option value="Bacau">Bacau</option>
+                    <option value="Bistrita-Nasaud">Bistrita-Nasaud</option>
+                    <option value="Botosani">Botosani</option>
+                    <option value="Brasov">Brasov</option>
+                    <option value="Braila">Braila</option>
+                    <option value="Buzau">Buzau</option>
+                    <option value="Caras-Severin">Caras-Severin</option>
+                    <option value="Calarasi">Calarasi</option>
+                    <option value="Cluj">Cluj</option>
+                    <option value="Constanta">Constanta</option>
+                    <option value="Covasna">Covasna</option>
+                    <option value="Dambovita">Dambovita</option>
+                    <option value="Dolj">Dolj</option>
+                    <option value="Galati">Galati</option>
+                    <option value="Giurgiu">Giurgiu</option>
+                    <option value="Gorj">Gorj</option>
+                    <option value="Harghita">Harghita</option>
+                    <option value="Hunedoara">Harghita</option>
+                    <option value="Ialomita">Ialomita</option>
+                    <option value="Iasi">Iasi</option>
+                    <option value="Ilfov">Ilfov</option>
+                    <option value="Maramures">Maramures</option>
+                    <option value="Mehedinti">Mehedinti</option>
+                    <option value="Mures">Mures</option>
+                    <option value="Neamt">Neamt</option>
+                    <option value="Olt">Olt</option>
+                    <option value="Prahova">Prahova</option>
+                    <option value="Satu Mare">Satu Mare</option>
+                    <option value="Salaj">Salaj</option>
+                    <option value="Sibiu">Sibiu</option>
+                    <option value="Suceava">Suceava</option>
+                    <option value="Teleorman">Teleorman</option>
+                    <option value="Timis">Timis</option>
+                    <option value="Tulcea">Tulcea</option>
+                    <option value="Vaslui">Vaslui</option>
+                    <option value="Valcea">Valcea</option>
+                    <option value="Vrancea">Vrancea</option>
+                </select>
+                <br/>
+                <br/>
+                <label class="labelClass"> Address: (Specify as much accurate as you can the place where the item/animal was found.) </label>
+                <br/>
+                <textarea maxlength="300" name="address" rows="3" cols="30" required></textarea>
+                <br/>
+                <br/>
+                <label class="labelClass"> Date: </label>
+                <br/>
+                <input type="date" required/>
+                <br/>
+                <br/>
+                <label class="labelClass"> Specific description: </label>
+                <br/>
+                <textarea maxlength="500" name="description" rows="5" cols="50" required></textarea>
+                <br/>
+                <br/>
+                <input type="file" name="filename" accept="image/gif, image/jpeg, image/png, image/jpg">
+                <br/>
+                <br/>
+                <div class="formButtons">
+                    <button type="button">FOUND</button>
+                    <button type="button" id="back" onclick="location.href='index_logout.html';"> BACK </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="login.css">
+    <title>login</title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <h1>LOGIN</h1>
+    <div id="wrapper">
+        <div id="formDiv">
+            <br>
+            <br>
+            <h5>* All fields are mandatory. Please make sure all required fields are filled out correctly.</h5>
+			      <form  action="connect.php" method="POST" enctype="multipart/form-data"></form>
+			
+                <h1>Create an account:</h1>
+                <form>
+                    <label class="labelClass"> First name: </label>
+                    <br/>
+                    <input type="text" name="fname" required/>
+                    <label class="labelClass"> Last name: </label>
+                    <br/>
+                    <input type="text" name="lname" required/>
+                    <label class="labelClass"> User: </label>
+                    <br/>
+                    <input type="text" name="username" required/>
+                    <label class="labelClass"> E-mail: </label>
+                    <br/>
+                    <input type="email" name="email" required/>
+                    <label class="labelClass"> Password: </label>
+                    <br/>
+                    <input type="password" name="password" required/>
+                    <label class="labelClass"> Phone: </label>
+                    <br/>
+                    <input type="number" name="phone" required/>
+                    <div>
+                        <label for="male">Male <input type="radio" id="male" name="gender"></label>
+                       
+                        <label for="female">Female <input type="radio" id="female" name="gender"></label>
+                       
+                    </div>
+
+                     <div class="formButtons">
+                      <button type="submit" value="Create" > CREATE</button>
+                      <button type="reset" value="Reset" > RESET</button>
+                      <button type="button" id="back" value="Back" onclick="location.href='index.html';" >BACK </button>
+                      </div>
+                </form>
+        </div>
+    </div>
+</body>
+
+</html>

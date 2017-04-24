@@ -1,0 +1,35 @@
+ 
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="login.css">
+    <title>login</title>
+    <meta charset="utf-8" />
+</head>
+
+<body>
+    <h1>LOGIN</h1>
+    <div id="wrapper">
+        <div id="formDiv">
+            <br>
+            <br>
+            <h5>* All fields are mandatory. Please make sure all required fields are filled out correctly.</h5>
+            <form method="POST" enctype="multipart/form-data">
+                <label class="labelClass"> User name: </label>
+                <br/>
+                <input type="text" required/>
+                <label class="labelClass"> Password: </label>
+                <br/>
+                <input type="password" required/>
+                <div class="formButtons">
+                    <button type="button"> LOGIN</button>
+                    <button type="button"> RESET</button>
+                    <button type="button" id="back" onclick="location.href='index_logout.html';"> BACK </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
