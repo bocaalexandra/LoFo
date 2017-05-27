@@ -1,3 +1,10 @@
+
+<?php
+session_start();
+?>
+
+
+
 <!DOCTYPE html>
 <html>
 
@@ -14,7 +21,7 @@
             <br>
             <br>
             <h5>* All fields are mandatory. Please make sure all required fields are filled out correctly.</h5>
-			      <form  action="connect.php" method="POST" enctype="multipart/form-data"></form>
+			      <form  action="connect.php" method="POST" enctype="multipart/form-data">
 			
                 <h1>Create an account:</h1>
                 <form>
@@ -39,18 +46,19 @@
                     <div>
                         <label for="male">Male <input type="radio" id="male" name="gender"></label>
                        
-                        <label for="female">Female <input type="radio" id="female" name="gender"></label>
+                        <label for="female">Female <input type="radio" id="male" name="gender"></label>
                        
                     </div>
 
                      <div class="formButtons">
-                      <button type="submit" value="Create" > CREATE</button>
+                      <button type="submit" name="submit" value="Create" > CREATE</button>
                       <button type="reset" value="Reset" > RESET</button>
                       <button type="button" id="back" value="Back" onclick="location.href='index.html';" >BACK </button>
                       </div>
                 </form>
         </div>
     </div>
+</form>
 </body>
 
 </html>

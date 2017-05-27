@@ -14,7 +14,7 @@
             <br>
             <br>
             <h5>* All fields are mandatory. Please make sure all required fields are filled out correctly.</h5>
-            <form method="POST" enctype="multipart/form-data">
+            <form  action="lost.php" method="POST" enctype="multipart/form-data">
                 <br/>
                 <label class="labelClass"> Category: </label>
                 <br/>
@@ -93,19 +93,19 @@
                 <br/>
                 <label class="labelClass"> Date: </label>
                 <br/>
-                <input type="date" required/>
+                <input type="date" name="date" required/>
                 <br/>
                 <br/>
                 <label class="labelClass"> Specific description: </label>
                 <br/>
-                <textarea maxlength="500" name="description" rows="5" cols="50" required></textarea>
+                <textarea maxlength="500" name="specific_description" rows="5" cols="50" required></textarea>
                 <br/>
                 <br/>
                 <input type="file" name="filename" accept="image/gif, image/jpeg, image/png, image/jpg">
                 <br/>
                 <br/>
                 <div class="formButtons">
-                    <button type="button">LOST</button>
+                    <button type="SUBMIT" id="LOST" >FOUND</button>
                     <button type="button" id="back" onclick="location.href='index_logout.html';"> BACK </button>
                 </div>
             </form>

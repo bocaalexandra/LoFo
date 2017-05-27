@@ -15,17 +15,17 @@
             <br>
             <br>
             <h5>* All fields are mandatory. Please make sure all required fields are filled out correctly.</h5>
-            <form method="POST" enctype="multipart/form-data">
-                <label class="labelClass"> User name: </label>
+            <form  action="login.php" method="POST" enctype="multipart/form-data">
+                <label class="labelClass"> username: </label>
                 <br/>
-                <input type="text" required/>
+                <input type="text" name="username" required/>
                 <label class="labelClass"> Password: </label>
                 <br/>
-                <input type="password" required/>
+                <input type="password" name="password" required/>
                 <div class="formButtons">
-                    <button type="button"> LOGIN</button>
-                    <button type="button"> RESET</button>
-                    <button type="button" id="back" onclick="location.href='index_logout.html';"> BACK </button>
+                    <button type="submit" value="Login" name="submit"> LOGIN</button>
+                    <button type="reset" value="Reset"> RESET</button>
+                    <button type="button" id="back" onclick="location.href='index.html';"> BACK </button>
                 </div>
             </form>
         </div>
