@@ -33,34 +33,38 @@ if(isset($_POST["submit"]))
        if($result)
       {
         ?>
-           <!--Javascript Alert -->
-           <script>alert('Your account has been created successfully!');</script>
+           <script type="text/javascript">
+           alert('Your account has been created successfully! Please check your E-mail vor validation!');
+           </script>
         <?php
 
-        header("refresh:3; url=index_logout.html");
+        header("refresh:1; url=login.html");
       }
          else
          {
            ?>
-             <!--Javascript Alert -->
-             <script>alert('Failure! Please try again!');</script>
+                  <script>alert('Failure! Please try again!');</script>
            <?php
+
+        header("refresh:1; url=inregistrare.html");
          }
       }
      else
       {
-       ?>
-           <!--Javascript Alert -->
+        ?>
            <script>alert('This E-mail or Username already exists! Please try again');</script>
         <?php
+
+        header("refresh:1; url=inregistrare.html");
       }
       }
      else
      {
      ?>
-     <!--Javascript Alert -->
-     <script>alert('Required all fields');</script>
+       <script>alert('All fields are required!');</script>
      <?php
+
+     header("refresh:1; url=inregistrare.html");
      }
      }
 

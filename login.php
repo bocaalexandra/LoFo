@@ -1,44 +1,62 @@
-
 <?php
 
-  if(isset($_POST["submit1"]))
+if(isset($_POST["submit"]))
+{
+  if(!empty($_POST['usernameus']) && !empty($_POST['passwordus']))
   {
 
-  $pwd = md5($_POST["password"]);
-  $servername = "localhost";
-  $username = "root";
-  $password = "lostnfound";
- 
-  $dbhandle = mysqli_connect($servername, $username, $password);
-  mysqli_select_db($dbhandle, "tehnologiiweb");
+    $usernameus = $_POST['usernameus'];
+    $passwordus = $_POST['passwordus'];
 
-  $count = 0;
-  
-  $query = mysqli_query($dbhandle, "SELECT * FROM users WHERE username = '$_POST[username]' AND password='pwd'");
-  $count = mysqli_num_rows($query);
-  
-  if($count > 0)
-  {
-  ?>
-  <script type = "text/javascript">
-  window.location = "index.html";
-  </script>
-  <?php
-  }
-  else
-  {
-  ?>
-    <script type = "text/javascript">
-    alert = ("Incorect username or password");
-    </script>
-  <?php
-  }
-  }
 
-  header("refresh:3; url=index_logout.html");
-  
+
+   $servername = "localhost";
+   $username = "root";
+   $password = "lostnfound";
+   $db ='tehnologiiweb' ;
+
+    $con = new mysqli($servername, $username, $password) or die (mysqli_error());
+    $select_db = mysqli_select_db($con,$db) or die ("Connot connect to the database");
+
+    $db = mysqli_query($con, "SELECT * FROM users WHERE passwordus='".$passwordus."' AND usernameus='".$usernameus."'");
+    $num_rows = mysqli_num_rows($db);
+
+    if($num_rows != 0)
+      {
+       while($row = mysqli_fetch_assoc($db))
+       {
+       $databaseusername=$row['usernameus'];
+       $databasepassword=$row['passwordus'];
+       }
+       if($usernameus == $databaseusername && $passwordus == $databasepassword)
+       {
+       session_start();
+       $_SESSION['sess_user']=$usernameus;
+           ?>
+                      <script>alert('Welcome!');</script>
+           <?php
+
+       header("refresh:1; url=index_logout.html");
+       }
+       }
+       else
+       {
+        ?>
+              <script>alert('Invalid Username or Password! Please try again');</script>
+        <?php
+
+        header("refresh:1; url=login.html");
+       }
+       }
+       else
+       {
+         ?>
+               <script>alert('All fields are required!');</script>
+         <?php
+
+         header("refresh:1; url=login.html");
+       }
+      }
+
 ?>
 
-
-
-  
