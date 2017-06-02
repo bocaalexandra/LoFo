@@ -3,8 +3,8 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: 02 Iun 2017 la 16:20
--- Versiune server: 10.1.21-MariaDB
+-- Generation Time: Jun 02, 2017 at 08:24 PM
+-- Server version: 10.1.21-MariaDB
 -- PHP Version: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
@@ -23,7 +23,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structura de tabel pentru tabelul `chat_private`
+-- Table structure for table `chat_private`
 --
 
 CREATE TABLE `chat_private` (
@@ -35,93 +35,51 @@ CREATE TABLE `chat_private` (
 -- --------------------------------------------------------
 
 --
--- Structura de tabel pentru tabelul `found`
+-- Table structure for table `found`
 --
 
 CREATE TABLE `found` (
-  `id` int(11) NOT NULL,
   `nume` varchar(30) NOT NULL,
   `address` varchar(500) NOT NULL,
   `date` date NOT NULL,
   `specific_description` varchar(1000) NOT NULL,
   `dd1` varchar(50) NOT NULL,
   `dd2` varchar(50) NOT NULL,
-  `name` varchar(50) NOT NULL,
   `filename` blob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
 --
--- Structura de tabel pentru tabelul `lost`
---
-
-CREATE TABLE `lost` (
-  `id` int(11) NOT NULL,
-  `nume` varchar(30) NOT NULL,
-  `address` varchar(500) NOT NULL,
-  `date` date NOT NULL,
-  `specific_description` varchar(1000) NOT NULL,
-  `dd1` varchar(50) NOT NULL,
-  `dd2` varchar(50) NOT NULL,
-  `name` varchar(50) NOT NULL,
-  `filename` blob NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Structura de tabel pentru tabelul `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
   `fname` varchar(30) NOT NULL,
   `lname` varchar(30) NOT NULL,
-  `usernameus` varchar(30) NOT NULL,
+  `username` varchar(30) NOT NULL,
   `email` varchar(30) NOT NULL,
-  `passwordus` varchar(30) NOT NULL,
+  `password` varchar(30) NOT NULL,
   `phone` int(10) NOT NULL,
-  `gender` varchar(10) NOT NULL
+  `image` blob NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Salvarea datelor din tabel `users`
+-- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`fname`, `lname`, `usernameus`, `email`, `passwordus`, `phone`, `gender`) VALUES
-('Codruta', 'Dudau', 'codrutadudau', 'andreeacodruta89@yahoo.com', 'lostnfound', 78956748, ''),
-('Raluca', 'Murarasu', 'ralucamurarasu', 'ralucamurarasu@yahoo.com', 'caine', 789056784, 'female');
+INSERT INTO `users` (`fname`, `lname`, `username`, `email`, `password`, `phone`, `image`) VALUES
+('Codruta', 'Dudau', 'codrutadudau', 'andreeacodruta89@yahoo.com', '123456', 767854321, ''),
+('', '', '', '', '', 0, ''),
+('', '', '', '', '', 0, ''),
+('Raluca', 'Murarasu', 'ralucamurarasu', 'ralucamurarasu@yahoo.com', '789987', 789654231, ''),
+('', '', '', '', '', 0, ''),
+('Alexandra', 'Boca', 'alexandraboca', 'alexandraboca@yahoo.com', '123456789', 723456123, ''),
+('Mihaela', 'Nicolae', 'mihaelanicolae', 'mihaelanicolae@yahoo.com', '345678', 745678912, ''),
+('Codruta', 'Dudau', 'codrutadudau', 'andreeacodruta89@yahoo.com', '123456', 767854321, ''),
+('dsfegr', 'dwfegr', 'defgsr', 'ral@yahoo.com', '12345', 742551848, ''),
+('sponge', 'bob', 'spongebob', 'spingebob@yahoo.com', 'sponge', 748021863, '');
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `found`
---
-ALTER TABLE `found`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `lost`
---
-ALTER TABLE `lost`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `found`
---
-ALTER TABLE `found`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT for table `lost`
---
-ALTER TABLE `lost`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
