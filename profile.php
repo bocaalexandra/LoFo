@@ -3,20 +3,30 @@
  -->
 
 <?php
-session_start();
- $_SESSION['username'] = "spongebob";  //to do - trebuie luat userul curent (din sesiunea curenta)
-?>
+	include 'login.php';
+	session_start();
+	
+	if( !isset($_SESSION['sess_user']) ){
+	    header("location:login.html");
+	    exit();
+	}
+	$usernameus = $_SESSION['sess_user'];
+	$con =  mysqli_connect("localhost","root","","tehnologiiweb");
 
-<?php
 	//if submit button has been clicked
     if(isset($_POST['submit'])){
         move_uploaded_file($_FILES['file']['tmp_name'],"users-pictures/".$_FILES['file']['name']);
 
         //update the profile pic with the one which has been added by the user
-       $con = mysqli_connect("localhost","root","","tehnologiiweb");
-       $query = mysqli_query($con,"UPDATE users SET image = '".$_FILES['file']['name']."' WHERE username = '".$_SESSION['username']."'");
+       $query = mysqli_query($con,"UPDATE users SET images = '".$_FILES['file']['name']."' WHERE usernameus = '".$usernameus."'");
 
     }
+    $q = mysqli_query($con,"SELECT fname, lname, email FROM users where usernameus = '".$usernameus."'");
+    $row = mysqli_fetch_assoc($q);
+    $fname = $row['fname'];
+    $lname = $row['lname'];
+    $email = $row['email'];
+
 ?>
 
 <!DOCTYPE HTML>
@@ -42,34 +52,35 @@ session_start();
 		<form class="myInfo">
 				
 				<label>First Name:</label>
-				<input type="text" value = "<?php echo $_SESSION['fname'] ?>" readonly/>
+				<input type="text" value = "<?php echo $fname ?>" readonly/>
 				<br/>
 			
 				<label>Last Name:</label>
-				<input type="text" value="<?php echo $_SESSION['lname'] ?>" readonly />
+				<input type="text" value="<?php echo $lname ?>" readonly />
 				<br/>
 			
 				<label>Username:</label>
-				<input type="text" value="<?php echo $_SESSION['username'] ?>" readonly/>
+				<input type="text" value="<?php echo $usernameus ?>" readonly/>
 				<br/>
 			
 				<label>E-mail address:</label>
-				<input type="text" value="<?php echo $_SESSION['email'] ?>" readonly> 
+				<input type="text" value="<?php echo $email ?>" readonly> 
 				<br/>
 		</form>
 	</div>
 	<?php
-        $con = mysqli_connect("localhost","root","","tehnologiiweb");
-        $query = mysqli_query($con,"SELECT * FROM users where username = '".$_SESSION['username']."'");
+		$usernameus = $_SESSION['sess_user'];
+        $con =  mysqli_connect("localhost","root","","tehnologiiweb");
+        $query = mysqli_query($con,"SELECT images FROM users where usernameus = '".$usernameus."'");
 
         //while fetching rows from the database
         while($row = mysqli_fetch_assoc($query)){
-            if($row['image'] == ""){
+            if($row['images'] == ""){
 
             	//if there's no image for the user, set a default img
                 echo "<img class='image' src='users-pictures/default.png' alt='Default Profile Picture'>";
             } else {
-                    echo "<img class='image' src='users-pictures/".$row['image']."' alt='Profile Picture'>";
+                    echo "<img class='image' src='users-pictures/".$row['images']."' alt='Profile Picture'>";
             }
         }
     ?>
