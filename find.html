@@ -102,13 +102,14 @@
                 <textarea maxlength="500" name="specific_description" rows="5" cols="50" required></textarea>
                 <br/>
                 <br/>
-                <input type="file" name="filename" accept="image/gif, image/jpeg, image/png, image/jpg">
-                <br/>
-                <br/>
+                <!-- added submit button   -->
+                        
+                <input type="file" name="filename" accept="image/gif, image/jpeg, image/png, image/jpg" id="chooseFile">
+                <input type="submit" name="submit" id="subm">
+
                 <div class="formButtons">
                     <button type="SUBMIT" id="FOUND" >FOUND</button>
                     <button type="button" id="back" onclick="location.href='index_logout.html';"> BACK </button>
-                    <button type="submit" value="Upload">Upload</button>
                 </div>
             </form>
         </div>
