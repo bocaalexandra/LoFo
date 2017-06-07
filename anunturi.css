@@ -1,0 +1,144 @@
+.anunt {
+	
+	position: relative;
+	border: 2px solid black;
+	width:300px;
+	height:400px;
+	background-color: #9cabc1;
+	margin-top:30px;
+	float:left;
+	margin:10px;
+	margin-left:15px;
+	
+}
+
+.button {
+    position: absolute;
+    padding: 6px 15px;
+    left: 15px;
+    float: left;
+    border: 2px solid black;
+    background-color: black;
+    color: #fafafa;
+	margin:5px;
+	margin-top:280px;
+}
+
+#b2{
+	
+	left:100px;
+}
+
+#b3{
+	
+	left:195px;
+}
+
+#b4{
+	
+	left:10px;
+	margin:5px;
+	margin-top:314px;
+}
+
+#b5{
+	
+	left:100px;
+	margin:5px;
+	margin-top:314px;
+}
+
+#b6{
+	
+	left:195px;
+	margin:5px;
+	margin-top:314px;
+}
+
+#b7{
+	
+	left:10px;
+	margin:5px;
+	margin-top:314px;
+}
+
+#b8{
+	
+	left:100px;
+	margin:5px;
+	margin-top:314px;
+}
+
+#b9{
+	
+	left:195px;
+	margin:5px;
+	margin-top:314px;
+}
+
+.button:hover {
+    background-color: #fafafa;
+    color: #207cca;
+}
+
+
+body {
+    background-color:#D3D3D3;
+}
+
+footer {
+    display: inline;
+    text-align: center;
+    width: 100%;
+    display: inline-block;
+    clear: both;
+    padding: 20px;
+    box-sizing: border-box;
+    margin: 20px 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+    background: #ffffff;
+    border-bottom: 2px solid #90A4AE;
+    border-radius: 3px;
+}
+
+#footer {
+    margin-top: 15px;
+    text-align: center;
+    text-shadow: 1px 0px 0px black;
+}
+
+div.tab {
+    overflow: hidden;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+}
+
+div.tab button {
+    background-color: inherit;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+}
+
+div.tab button:hover {
+    background-color: #ddd;
+}
+
+div.tab button.active {
+    background-color: #ccc;
+}
+
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+}
+
+
+
+	
