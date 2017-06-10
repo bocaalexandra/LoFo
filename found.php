@@ -22,7 +22,7 @@
     $result = mysqli_query($con, "INSERT INTO found (userid, nume, address, date, specific_description, dd1, dd2) VALUES ('$userid', '$nume', '$address', '$date', '$specific_description', '$dd1', '$dd2')");
 
    //if submit button has been clicked
-    if(isset($_POST['submit'])){
+    if(isset($_POST['found'])){
         move_uploaded_file($_FILES['filename']['tmp_name'],"found-pictures/".$_FILES['filename']['name']);
 
         //update the picture with the one which has been added within the announcement

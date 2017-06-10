@@ -21,7 +21,7 @@
   $result = mysqli_query($con, "INSERT INTO lost (userid, nume, address, date, specific_description, dd1, dd2) VALUES ('$userid', '$nume', '$address', '$date', '$specific_description', '$dd1', '$dd2')");
 
   //if submit button has been clicked
-    if(isset($_POST['submit'])){
+    if(isset($_POST['lost'])){
         move_uploaded_file($_FILES['filename']['tmp_name'],"lost-pictures/".$_FILES['filename']['name']);
 
         //update the picture with the one which has been added within the announcement

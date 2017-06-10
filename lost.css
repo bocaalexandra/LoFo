@@ -89,16 +89,6 @@ label, select, textarea, input, button {
     max-width: 165px;
 }
 
- #subm {
-    display: inline-block;
-    bottom: 30px;
-    left: 170px;
-    position: relative;
-    font-size:12px;
-    font-family: Arial;
-    max-width: 55px;
-}
-
-#chooseFile, #subm, button {
+#chooseFile, button {
     cursor:pointer;  /* "hand" cursor */
 }
