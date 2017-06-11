@@ -51,8 +51,8 @@
 			</div>
 			<nav class="pull-right">
 				<ul>
-					<li><a href="#">Login</a></li>
-					<li><a href="#">Register</a></li>
+					<li><a href="#" onclick="location.href='login.html'">Login</a></li>
+					<li><a href="#" onclick="location.href='inregistrare.html'">Register</a></li>
 					<li><a href="#" class="btn btn-report" onclick="location.href='lost.html'">+ Add new</a></li>
 				</ul>
 			</nav>
