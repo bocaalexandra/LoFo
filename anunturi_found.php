@@ -41,10 +41,9 @@
 	<link href="https://fonts.googleapis.com/css?family=Handlee|Lato:300,400,700,900" rel="stylesheet">
 
 	<!-- STYLES -->
-	<link rel="stylesheet" type="text/css" href="anunturi.css">
+	<link rel="stylesheet" type="text/css" href="anunturi_found.css">
 </head>
 <body>
-    
 	<header>
 		<div class="container clearfix">
 			<div class="logo-wrap pull-left">
@@ -54,6 +53,7 @@
 				<ul>
 					<li><a href="#">Login</a></li>
 					<li><a href="#">Register</a></li>
+					<li><a href="#" class="btn btn-report" onclick="location.href='find.html'">+ Add new</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -62,9 +62,9 @@
 		<div class="container">
 			<div class="actions-container clearfix">
 				<div class="actions-wrap filters-wrap pull-left">
-					<a class="action-item filter-item active">All</a>
-					<a class="action-item filter-item" onclick="location.href='anunturi_lost.php'">Lost</a>
-			        <a class="action-item filter-item" onclick="location.href='anunturi_found.php'">Found</a>
+					<a href="#" class="action-item filter-item" onclick="location.href='anunturi.php'">All</a>
+					<a href="#" class="action-item filter-item" onclick="location.href='anunturi_lost.php'">Lost</a>
+					<a href="#" class="action-item filter-item active">Found</a>
 				</div>
 				<div class="actions-wrap orders-wrap pull-right">
 					<a href="#" class="action-item order-item active">New</a>
@@ -75,10 +75,10 @@
 
 			<!-- First item-->
 			<?php
-				$sql = $pdo->query("SELECT * FROM lost")->fetchall(PDO::FETCH_ASSOC);
+				$sql = $pdo->query("SELECT * FROM found")->fetchall(PDO::FETCH_ASSOC);
 				foreach($sql as $row): ?>
 				<div class='announcement-item'>
-					<div class='announcement-type announcement-type-lost'><h4>Lost</h4>
+					<div class='announcement-type announcement-type-lost'><h4>Found</h4>
 					</div>
 					<div class='announcement-image' style="background-image: url('lost-pictures/<?php echo $row['images'] ?>')">
 					</div>
@@ -167,7 +167,7 @@
 	var span = document.getElementsByClassName("close");
 	var span2 = document.getElementsByClassName("close");
 	var span3 = document.getElementsByClassName("close");
-
+	
 
 	btn.onclick = function() {
 	    modal.style.display = "block";

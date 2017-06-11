@@ -44,7 +44,6 @@
 	<link rel="stylesheet" type="text/css" href="anunturi.css">
 </head>
 <body>
-    
 	<header>
 		<div class="container clearfix">
 			<div class="logo-wrap pull-left">
@@ -54,6 +53,7 @@
 				<ul>
 					<li><a href="#">Login</a></li>
 					<li><a href="#">Register</a></li>
+					<li><a href="#" class="btn btn-report" onclick="location.href='lost.html'">+ Add new</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -62,9 +62,9 @@
 		<div class="container">
 			<div class="actions-container clearfix">
 				<div class="actions-wrap filters-wrap pull-left">
-					<a class="action-item filter-item active">All</a>
-					<a class="action-item filter-item" onclick="location.href='anunturi_lost.php'">Lost</a>
-			        <a class="action-item filter-item" onclick="location.href='anunturi_found.php'">Found</a>
+					<a href="#" class="action-item filter-item" onclick="location.href='anunturi.php'">All</a>
+					<a href="#" class="action-item filter-item active">Lost</a>
+					<a href="#" class="action-item filter-item" onclick="location.href='anunturi_found.php'">Found</a>
 				</div>
 				<div class="actions-wrap orders-wrap pull-right">
 					<a href="#" class="action-item order-item active">New</a>
