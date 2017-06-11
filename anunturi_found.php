@@ -78,9 +78,9 @@
 				$sql = $pdo->query("SELECT * FROM found")->fetchall(PDO::FETCH_ASSOC);
 				foreach($sql as $row): ?>
 				<div class='announcement-item'>
-					<div class='announcement-type announcement-type-lost'><h4>Found</h4>
+					<div class='announcement-type announcement-type-found'><h4>Found</h4>
 					</div>
-					<div class='announcement-image' style="background-image: url('lost-pictures/<?php echo $row['images'] ?>')">
+					<div class='announcement-image' style="background-image: url('found-pictures/<?php echo $row['images'] ?>')">
 					</div>
 					<h3><?php echo $row['nume'];?></h3>
 					<div class="announcement-actions">
