@@ -1,3 +1,31 @@
+<?php 
+
+	/*include 'login.php';
+	session_start();
+	if( !isset($_SESSION['sess_user']) ){
+	    header("location:login.html");
+	    exit();
+	}
+	$usernameus = $_SESSION['sess_user']; 
+	 */
+
+	$servername = "localhost";
+	$username = "root";
+    $password = "";
+    $db ='tehnologiiweb';
+
+	try {
+    	$pdo = new PDO("mysql:host=$servername;dbname=$db", $username, $password);
+    	// set the PDO error mode to exception
+    	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    	//echo "Connected successfully"; 
+    }
+	catch(PDOException $e){
+    	echo "Connection failed: " . $e->getMessage();
+    }
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,13 +74,15 @@
 			<div class="announcements-wrap clearfix">
 
 			<!-- First item-->
-
-				<div class="announcement-item">
-					<div class="announcement-type announcement-type-lost">
-						<h4>Lost</h4>
+			<?php
+				$sql = $pdo->query("SELECT * FROM lost")->fetchall(PDO::FETCH_ASSOC);
+				foreach($sql as $row): ?>
+				<div class='announcement-item'>
+					<div class='announcement-type announcement-type-lost'><h4>Lost</h4>
 					</div>
-					<div class="announcement-image" style="background-image: url('announcements-pictures/birmaneza.jpg')"></div>
-					<h3>Pisica Birmaneza</h3>
+					<div class='announcement-image' style="background-image: url('lost-pictures/<?php echo $row['images'] ?>')">
+					</div>
+					<h3><?php echo $row['nume'];?></h3>
 					<div class="announcement-actions">
 						
 						<!-- The Details Modal -->
@@ -61,12 +91,12 @@
 								<div class="modal-content">
 										<span class="close">&times;</span>
 										<form action="" method="post" enctype="multipart/form-data">
-											<h4>Name:  </h4></br>
-											<h4>Category:  </h4></br>
-											<h4>City: </h4></br>
-											<h4>Address: </h4></br>
-											<h4>Date:  </h4></br>
-											<h4>More details: </h4></br>
+											<h4>Name: <?php echo $row['nume'];?> </h4></br>
+											<h4>Category: <?php echo $row['dd1'];?>  </h4></br>
+											<h4>City: <?php echo $row['dd2'];?></h4></br>
+											<h4>Address: <?php echo $row['address'];?></h4></br>
+											<h4>Date: <?php echo $row['date'];?> </h4></br>
+											<h4>More details: <?php echo $row['specific_description'];?></h4></br>
 										</form>
 								</div>
 						</div>
@@ -94,7 +124,7 @@
 						<!-- /The Contact Modal -->
 						
 						<!-- The Report Modal -->
-						<input type="button" name="report" value="Report" class="btn btn-report"" id="b3">
+						<input type="button" name="report" value="Report" class="btn btn-report" id="b3">
 						<div id="myModal2" class="modal">
 							<div class="modal-content">
 								<span class="close">&times;</span>
@@ -112,59 +142,13 @@
 						</div>
 						<!-- /The Report Modal -->
 					</div>
+					
 				</div>
-			<!-- /First item-->
+				<?php
+    			endforeach;
+			?>
+			<!-- /First item-->	
 
-
-
-				<div class="announcement-item">
-					<div class="announcement-type announcement-type-found">
-						<h4>Found</h4>
-					</div>
-					<div class="announcement-image" style="background-image: url('announcements-pictures/birmaneza.jpg')"></div>
-					<h3>Pisica Birmaneza</h3>
-					<div class="announcement-actions">
-						<a href="#" class="btn btn-details">Details</a>
-						<a href="#" class="btn btn-contact">Contact</a>
-						<a href="#" class="btn btn-report">Report</a>
-					</div>
-				</div>
-				<div class="announcement-item">
-					<div class="announcement-type announcement-type-lost">
-						<h4>Lost</h4>
-					</div>
-					<div class="announcement-image" style="background-image: url('announcements-pictures/birmaneza.jpg')"></div>
-					<h3>Pisica Birmaneza</h3>
-					<div class="announcement-actions">
-						<a href="#" class="btn btn-details">Details</a>
-						<a href="#" class="btn btn-contact">Contact</a>
-						<a href="#" class="btn btn-report">Report</a>
-					</div>
-				</div>
-				<div class="announcement-item">
-					<div class="announcement-type announcement-type-found">
-						<h4>Found</h4>
-					</div>
-					<div class="announcement-image" style="background-image: url('announcements-pictures/birmaneza.jpg')"></div>
-					<h3>Pisica Birmaneza</h3>
-					<div class="announcement-actions">
-						<a href="#" class="btn btn-details">Details</a>
-						<a href="#" class="btn btn-contact">Contact</a>
-						<a href="#" class="btn btn-report">Report</a>
-					</div>
-				</div>
-				<div class="announcement-item">
-					<div class="announcement-type announcement-type-lost">
-						<h4>Lost</h4>
-					</div>
-					<div class="announcement-image" style="background-image: url('announcements-pictures/birmaneza.jpg')"></div>
-					<h3>Pisica Birmaneza</h3>
-					<div class="announcement-actions">
-						<a href="#" class="btn btn-details">Details</a>
-						<a href="#" class="btn btn-contact">Contact</a>
-						<a href="#" class="btn btn-report">Report</a>
-					</div>
-				</div>
 			</div>
 		</div>
 	</div>
