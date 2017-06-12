@@ -41,10 +41,9 @@
 	<link href="https://fonts.googleapis.com/css?family=Handlee|Lato:300,400,700,900" rel="stylesheet">
 
 	<!-- STYLES -->
-	<link rel="stylesheet" type="text/css" href="anunturi.css">
+	<link rel="stylesheet" type="text/css" href="new_found.css">
 </head>
 <body>
-     <form  action="login.php" method="POST" enctype="multipart/form-data">
 	<header>
 		<div class="container clearfix">
 			<div class="logo-wrap pull-left">
@@ -54,7 +53,7 @@
 				<ul>
 					<li><a href="#" onclick="location.href='login.html'">Login</a></li>
 					<li><a href="#" onclick="location.href='inregistrare.html'">Register</a></li>
-					<li><a href="#" class="btn btn-report" onclick="location.href='lost.html'">+ Add new</a></li>
+					<li><a href="#" class="btn btn-report" onclick="location.href='find.html'">+ Add new</a></li>
 				</ul>
 			</nav>
 		</div>
@@ -64,24 +63,24 @@
 			<div class="actions-container clearfix">
 				<div class="actions-wrap filters-wrap pull-left">
 					<a href="#" class="action-item filter-item" onclick="location.href='anunturi.php'">All</a>
-					<a href="#" class="action-item filter-item active">Lost</a>
+					<a href="#" class="action-item filter-item" onclick="location.href='anunturi_lost.php'">Lost</a>
 					<a href="#" class="action-item filter-item" onclick="location.href='anunturi_found.php'">Found</a>
 				</div>
 				<div class="actions-wrap orders-wrap pull-right">
-					<a href="#" class="action-item order-item" onclick="location.href='new_lost.php'">New</a>
-					<a href="#" class="action-item order-item" onclick="location.href='old_new.php'">Old</a>
+					<a href="#" class="action-item order-item active" onclick="location.href='new_found.php'">New</a>
+					<a href="#" class="action-item order-item" onclick="location.href='old_found.php'">Old</a>
 				</div>
 			</div>
 			<div class="announcements-wrap clearfix">
 
 			<!-- First item-->
 			<?php
-				$sql = $pdo->query("SELECT * FROM lost")->fetchall(PDO::FETCH_ASSOC);
+				$sql = $pdo->query("SELECT * FROM found ORDER BY id DESC LIMIT 8")->fetchall(PDO::FETCH_ASSOC);
 				foreach($sql as $row): ?>
 				<div class='announcement-item'>
-					<div class='announcement-type announcement-type-lost'><h4>Lost</h4>
+					<div class='announcement-type announcement-type-found'><h4>Found</h4>
 					</div>
-					<div class='announcement-image' style="background-image: url('lost-pictures/<?php echo $row['images'] ?>')">
+					<div class='announcement-image' style="background-image: url('found-pictures/<?php echo $row['images'] ?>')">
 					</div>
 					<h3><?php echo $row['nume'];?></h3>
 					<div class="announcement-actions">
@@ -168,7 +167,7 @@
 	var span = document.getElementsByClassName("close");
 	var span2 = document.getElementsByClassName("close");
 	var span3 = document.getElementsByClassName("close");
-
+	
 
 	btn.onclick = function() {
 	    modal.style.display = "block";

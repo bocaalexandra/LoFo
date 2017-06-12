@@ -41,7 +41,7 @@
 	<link href="https://fonts.googleapis.com/css?family=Handlee|Lato:300,400,700,900" rel="stylesheet">
 
 	<!-- STYLES -->
-	<link rel="stylesheet" type="text/css" href="anunturi.css">
+	<link rel="stylesheet" type="text/css" href="new_lost.css">
 </head>
 <body>
      <form  action="login.php" method="POST" enctype="multipart/form-data">
@@ -64,11 +64,11 @@
 			<div class="actions-container clearfix">
 				<div class="actions-wrap filters-wrap pull-left">
 					<a href="#" class="action-item filter-item" onclick="location.href='anunturi.php'">All</a>
-					<a href="#" class="action-item filter-item active">Lost</a>
+					<a href="#" class="action-item filter-item" onclick="location.href='anunturi_lost.php'">Lost</a>
 					<a href="#" class="action-item filter-item" onclick="location.href='anunturi_found.php'">Found</a>
 				</div>
 				<div class="actions-wrap orders-wrap pull-right">
-					<a href="#" class="action-item order-item" onclick="location.href='new_lost.php'">New</a>
+					<a href="#" class="action-item order-item active">New</a>
 					<a href="#" class="action-item order-item" onclick="location.href='old_new.php'">Old</a>
 				</div>
 			</div>
@@ -76,7 +76,7 @@
 
 			<!-- First item-->
 			<?php
-				$sql = $pdo->query("SELECT * FROM lost")->fetchall(PDO::FETCH_ASSOC);
+				$sql = $pdo->query("SELECT * FROM lost ORDER BY id DESC LIMIT 8")->fetchall(PDO::FETCH_ASSOC);
 				foreach($sql as $row): ?>
 				<div class='announcement-item'>
 					<div class='announcement-type announcement-type-lost'><h4>Lost</h4>
