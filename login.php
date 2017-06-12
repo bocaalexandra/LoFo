@@ -7,7 +7,7 @@
 
           $servername = "localhost";
           $username = "root";
-          $password = "";
+          $password = "lostnfound";
           $db ='tehnologiiweb' ;
 
           $con = new mysqli($servername, $username, $password) or die (mysqli_error());
@@ -29,7 +29,7 @@
                       <script>alert('Welcome!');</script>
 <?php
 
-                      header("refresh:1; url=index_logout.html");
+                      header("refresh:1; url=index_logoutt.php");
               }
               } else {
 ?>
