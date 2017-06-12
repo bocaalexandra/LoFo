@@ -30,7 +30,7 @@
         //update the picture with the one which has been added within the announcement
        $q = mysqli_query($con,"UPDATE found SET images = '".$_FILES['filename']['name']."' WHERE id = '".$id['id']."'");
 
-       $check_image = mysqli_query($con,"SELECT images FROM found where id = '".$id['id']."'");
+       /*$check_image = mysqli_query($con,"SELECT images FROM found where id = '".$id['id']."'");
        while($img = mysqli_fetch_assoc($check_image)){
             if($img['images'] == ""){
 
@@ -39,7 +39,7 @@
                 $blob = fopen($filePath, "rb");
                 $set_image = mysqli_query($con,"UPDATE found SET images = '". $blob."' WHERE id = '".$id['id']."'");
             }
-        }
+        } */
 
     }
 
