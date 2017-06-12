@@ -11,20 +11,51 @@
 
 	$servername = "localhost";
 	$username = "root";
-    $password = "lostnfound";
+    $password = "";
     $db ='tehnologiiweb';
 
 	try {
-    	$pdo = new PDO("mysql:host=$servername;dbname=$db", $username, $password);
-    	// set the PDO error mode to exception
-    	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    	//echo "Connected successfully"; 
-    }
-	catch(PDOException $e){
-    	echo "Connection failed: " . $e->getMessage();
-    }
+     	$pdo = new PDO("mysql:host=$servername;dbname=$db", $username, $password);
+     	// set the PDO error mode to exception
+     	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+     	//echo "Connected successfully"; 
+     }
+ 	catch(PDOException $e){
+      	echo "Connection failed: " . $e->getMessage();
+      }
+  
+    //pagination
+     try{
+ 
+     	 // how many items are in the table
+     	$total = $pdo->query('SELECT COUNT(*) FROM lost')->fetchColumn();
+ 
+     	// how many items / page
+     	$limit = 8;
+ 
+     	// how many pages to display
+    		$pages = ceil($total / $limit);
+ 
+    		// what page are we currently on?
+    		$page = min($pages, filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT, array( 'options' => array('default'   => 1,'min_range' => 1, ), )));
+    		
+    		// Calculate the offset for the query
+    		$offset = ($page - 1)  * $limit;
+ 
+    	    // Some information to display to the user
+    	    $start = $offset + 1;
+     	$end = min(($offset + $limit), $total);
+ 
+     	// Prepare the paged query
+    		 $stmt = $pdo->prepare('
+         SELECT * FROM lost ORDER BY id LIMIT :limit OFFSET :offset');
+ 
+     	// Bind the query params
+ 	    $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+ 	    $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
+ 	    $stmt->execute();
+ ?>
 
-?>
 
 <!DOCTYPE html>
 <html>
@@ -74,17 +105,49 @@
 			</div>
 			<div class="announcements-wrap clearfix">
 
-			<!-- First item-->
 			<?php
-				$sql = $pdo->query("SELECT * FROM lost")->fetchall(PDO::FETCH_ASSOC);
-				foreach($sql as $row): ?>
-				<div class='announcement-item'>
-					<div class='announcement-type announcement-type-lost'><h4>Lost</h4>
-					</div>
-					<div class='announcement-image' style="background-image: url('lost-pictures/<?php echo $row['images'] ?>')">
-					</div>
-					<h3><?php echo $row['nume'];?></h3>
-					<div class="announcement-actions">
+				//$sql = $pdo->query("SELECT * FROM lost")->fetchall(PDO::FETCH_ASSOC);
+				//foreach($sql as $row): 
+
+				// Prepare the paged query
+ 		   		$stmt = $pdo->prepare('
+ 		        SELECT * FROM lost ORDER BY id LIMIT :limit OFFSET :offset');
+ 
+     			// Bind the query params
+ 			    $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
+ 			    $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
+ 			    $stmt->execute();
+ 
+ 				// Check if there are results
+ 	    		if ($stmt->rowCount() > 0) {
+ 
+ 			    // how to fetch the results
+ 			    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+ 			    $iterator = new IteratorIterator($stmt);	
+ 
+ 				// Display the results
+
+				foreach ($iterator as $row) { ?>
+ 
+ 					<div class='announcement-item'>
+ 						<div class='announcement-type announcement-type-lost'>
+ 						<h4>Lost</h4>
+ 					</div>
+ 							
+ 					<?php //if there is no image set
+ 						if($row['images'] == ""){ ?>								<div class='announcement-image' style="background-image: url('lost-pictures/default.jpg')">
+ 									</div>
+ 
+ 						<?php }
+ 						else { ?>
+ 								
+ 							<div class='announcement-image' style="background-image: url('lost-pictures/<?php echo $row['images'] ?>')">
+ 							</div>
+ 
+ 				<?php } ?>
+ 
+ 					<h3><?php echo $row['nume'];?></h3>
+ 					<div class="announcement-actions">
 						
 						<!-- The Details Modal -->
 						<input type="button" name="details" value="Details" class="btn btn-details" id="b1"/>
@@ -146,13 +209,38 @@
 					
 				</div>
 				<?php
-    			endforeach;
-			?>
-			<!-- /First item-->	
+    			} //end foreach
+ 			} else {
+ 				?>
+ 				 <script> alert( 'No results could be displayed!');	</script>
+ 				 <?php
+ 			} //endif
+ 		} //end try
+     		
+     	catch (Exception $e) { ?>
+     		<script>
+ 	   		 	alert( ' <?php $e->getMessage() ?>' );
+ 	   		 </script>
+ 		<?php
+ 		}	//end catch	
+ 		?>
 
 			</div>
 		</div>
 	</div>
+
+
+ 	<!-- Paging information -->
+ 	<?php
+ 	// back 
+     $prevlink = ($page > 1) ? '<a href="?page=1" title="First page">&laquo;</a> <a href="?page=' . ($page - 1) . '" title="Previous page">&lsaquo;</a>' : '<span class="disabled">&laquo;</span> <span class="disabled">&lsaquo;</span>';
+ 
+     // next
+     $nextlink = ($page < $pages) ? '<a href="?page=' . ($page + 1) . '" title="Next page">&rsaquo;</a> <a href="?page=' . $pages . '" title="Last page">&raquo;</a>' : '<span class="disabled">&rsaquo;</span> <span class="disabled">&raquo;</span>';
+ 
+     // pages displayed 
+     echo '<div><p style=" margin: 0 auto; text-align: center; color: #50394c; line-height:1; font-family: cursive, sans-serif"; >', $prevlink, ' Page ', $page, ' of ', $pages, ' pages, displaying ', $start, '-', $end, ' of ', $total, ' results ', $nextlink, ' </p></div>';
+     ?>
 
 	<!-- Functions for modals -->
 	<script>
