@@ -38,7 +38,7 @@
                 <h4 id="titlu">The Museum of Lost'n Found Objects</h4>
             </div>
             <div class="rightSide">
-                <h4 id="login"><a href="login.html"  class="nounderline" >Logout</a> | <a href="inregistrare.html"  class="nounderline">My Profile</a></h4>
+                <h4 id="login"><a href="login.html"  class="nounderline" >Logout</a> | <a href="profile.php"  class="nounderline">My Profile</a></h4>
             </div>
         </div>
         <div class="clear"></div>
