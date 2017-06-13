@@ -166,7 +166,7 @@
     			endforeach;
 			?>
 		
-		    <form action="anunturi.php">
+		    <form action="anunturi_lost.php">
                  <input type="submit" value="See all" id="seeall" >
             </form> 
 			    
