@@ -47,7 +47,7 @@
 	<header>
 		<div class="container clearfix">
 			<div class="logo-wrap pull-left">
-				<a href="#" class="logo">LoFo</a>
+				<a href="#" class="logo"  onclick="location.href='index_logoutt.php'">LoFo</a>
 			</div>
 			<nav class="pull-right">
 				<ul>
