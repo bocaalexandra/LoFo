@@ -66,7 +66,7 @@
             <input type="file" name="file" accept="image/gif, image/jpeg, image/png, image/jpg" id="chooseFile">
             <input type="submit" name="submit" id="subm">
         </form>
-		<a href="index_logout.html"><button type="button" id="back" onclick="location.href='index_logoutt.php';"> Back </button> </a>
+		<a href="index_logoutt.php"><button type="button" id="back" onclick="location.href='index_logoutt.php';"> Back </button> </a>
 
 		<form class="myInfo">
 				
