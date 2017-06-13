@@ -42,16 +42,14 @@
         */
     }
 
-  if($result) {
-      echo 'The announcement has been added.';
+   if($result) { ?>
+      <script> alert ('The announcement has been added.'); </script>
+	 <?php header("refresh:3; url=index_logoutt.php"); 
   }
-  else {
-    echo 'The announcement hasn\'t been added.';
+  else { ?>
+	<script> alert ('The announcement hasn\'t been added.'); </script>
+   <?php echo 'The announcement hasn\'t been added.';
   }
-
-  /*
-        de scos din comentariu. ma trimitea de pe lost, pe anunturi
-  header("refresh:3; url=announcements.html"); */
 
 
 
