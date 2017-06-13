@@ -9,30 +9,31 @@ body {
 }
 
 .left-section {
-	background-color: white;
+	/*display:none;*/
+	background-color: black;
+    opacity: .6;
 	height:900px;
 	float: left;	
 	width:45%;
 	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 	transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 	border-bottom: 2px solid #90A4AE;
-	border-radius:3px;	
 	position: fixed;
 
 }
 
-h3 {
+.title {
 	position:relative;
-	top:30px;
+	top:35px;
 	font-size:30px;
-	font-family: Arial;
+	font-family:cursive, sans-serif;
+	left:20px;
 	color:#CFD8DC;
-	text-shadow: 1px 1px 1px black; 
-	text-align: center;
+	text-shadow: 1px 1px 1px black;
 }
 
 .image {	
-	top: 100px;
+	top: 120px;
 	left:20px;
 	position: absolute;
 	border-radius:2px;
@@ -40,9 +41,9 @@ h3 {
 	-moz-box-shadow: 5px 5px 0px #999;
     -webkit-box-shadow: 5px 5px 0px #999;
     box-shadow: 5px 5px 0px #999;
-	height:180px;
+	height:240px;
 	position: fixed;
-	width:12%;
+	width:18%;
 }
 
 img.image:hover {
@@ -54,10 +55,11 @@ img.image:hover {
 
 #chooseFile {
 	display: inline-block;
+	border-radius: 1px;
 	position: relative;
 	left:20px;
 	overflow: hidden;
-	top: 550px;
+	top: 600px;
 	height: 20px;
 	font-size:12px;
 	font-family: Arial;
@@ -76,18 +78,20 @@ img.image:hover {
 
 #subm {
 	display: inline-block;
+	border-radius: 1px;
 	position: relative;
 	height: 20px;
 	left:100px;
-	top: 545px;
+	top: 597px;
 	font-size:12px;
 	font-family: Arial;
 }
 
 #back{
 	display: inline-block;
+	border-radius: 1px;
 	position: relative;
-	top:525px;
+	top:575px;
 	left:490px;
 	height: 20px;
 	font-size:12px;
@@ -95,21 +99,21 @@ img.image:hover {
 	display: inline-block;
 }
 
-.myInfo {
+.myInfo h4{
 	position: relative;
-	top:300px;
+	top:350px;
 	left:20px ;
 	font-size:19px;
-	font-family: Arial;
+	font-family: cursive, sans-serif;
 	color:#CFD8DC;
 	text-shadow: 1px 1px 1px black; 
 	width: 50%;
 }
 
 .right-section {
+	background-color: #CFD8DC; 
 	display: inline-block;
 	float: right;
-	background-color:white;
 	width: 54%;
 	height: auto;
 	overflow: hidden;
@@ -239,11 +243,10 @@ header nav ul li{
 }
 .announcement-item{
 	width: 60%;
-	float: left;
-	left:-50%;
+	/*float: left; */
+	margin: auto;
 	margin-bottom: 30px;
 	padding: 0 15px;
-	display:inline-block;
 	
 }
 .announcement-type{

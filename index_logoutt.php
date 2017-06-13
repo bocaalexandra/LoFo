@@ -2,7 +2,7 @@
 
 	$servername = "localhost";
 	$username = "root";
-    $password = "lostnfound";
+    $password = "";
     $db ='tehnologiiweb';
 
 	try {
@@ -108,74 +108,27 @@
 			
 				</div> <!-- /slideshow -->
 			<!-- Anunturi -->
-			
+				<h3 id="recent">Most recent announcements!</h3>
 				<?php
 				$sql = $pdo->query("SELECT * FROM found ORDER BY id DESC LIMIT 4")->fetchall(PDO::FETCH_ASSOC);
 				foreach($sql as $row):  ?> 
 				<div class='announcement-item'>
 					<div class='announcement-type announcement-type-found'><h4>Found</h4>
 					</div>
-					<div class='announcement-image' style="background-image: url('found-pictures/<?php echo $row['images'] ?>')">
-					</div>
+					<?php //if there is no image set
+ 						if($row['images'] == ""){ ?>								<div class='announcement-image' style="background-image: url('found-pictures/default.jpg')">
+ 									</div>
+ 
+ 						<?php }
+ 						else { ?>
+ 								
+ 							<div class='announcement-image' style="background-image: url('found-pictures/<?php echo $row['images'] ?>')">
+ 							</div>
+ 
+ 				<?php } ?>
+
 					<h3><?php echo $row['nume'];?></h3>
 					<div class="announcement-actions">
-						
-						<!-- The Details Modal -->
-						<input type="button" name="details" value="Details" class="btn btn-details" id="b1"/>
-						<div id="myModal" class="modal">
-								<div class="modal-content">
-										<span class="close">&times;</span>
-										<form action="" method="post" enctype="multipart/form-data">
-											<h4>Name: <?php echo $row['nume'];?> </h4></br>
-											<h4>Category: <?php echo $row['dd1'];?>  </h4></br>
-											<h4>City: <?php echo $row['dd2'];?></h4></br>
-											<h4>Address: <?php echo $row['address'];?></h4></br>
-											<h4>Date: <?php echo $row['date'];?> </h4></br>
-											<h4>More details: <?php echo $row['specific_description'];?></h4></br>
-										</form>
-								</div>
-						</div>
-						<!-- /The Details Modal -->
-						
-						<!-- The Contact Modal -->
-						<input type="button" name="contact" value="Contact" class="btn btn-contact" id="b2">
-						<div id="myModal1" class="modal">
-							<div class="modal-content">
-							<span class="close">&times;</span>
-				    		<form action="ex.php" method="post">
-								<h5>First Name: </h5><input type="text" name="first_name"></br>
-								<h5>Last Name: </h5><input type="text" name="last_name"></br>
-								<h5>From: </h5><input type="text" name="email"></br>
-								<h5>To: </h5><input type="text" name="email_to"></br>
-								<h5>Message: </h5>
-								</br>
-								<textarea id="txtArea" rows="20" name="message" cols="30">
-								</textarea><br>
-								<input type="submit" name="submit" value="Send">
-							</form>
-							</div>
-						</div>
-
-						<!-- /The Contact Modal -->
-						
-						<!-- The Report Modal -->
-						<input type="button" name="report" value="Report" class="btn btn-report" id="b3">
-						<div id="myModal2" class="modal">
-							<div class="modal-content">
-								<span class="close">&times;</span>
-								<form action="report.php" method="post">
-									<h4>Please tell us why do you want to report this announce: </h4></br>
-									<input type="radio" name="group1" value="inp"> I think the content is inapropriate</br>
-									<input type="radio" name="group1" value="inp2"> I don't think this should be on this site</br>
-									<input type="radio" name="group1" value="inp3"> This object was stoled</br>
-									<input type="radio" name="group1" value="inp4"> This announce is more than once on this website</br>
-									<input type="radio" name="group1" value="inp5"> Other reason (Please specify down below)</br>
-							        </br><textarea placeholder="Why do you want to report this announce?" id="txtArea2" rows="20" name="message2" cols="30"></textarea><br>
-									<input type="submit" name="submit2" value="Submit report">
-								</form>
-							</div>
-						</div>
-						<!-- /The Report Modal -->
 					</div>
 					
 				</div>
@@ -190,67 +143,21 @@
 				<div class='announcement-item'>
 					<div class='announcement-type announcement-type-lost'><h4>Lost</h4>
 					</div>
-					<div class='announcement-image' style="background-image: url('lost-pictures/<?php echo $row['images'] ?>')">
-					</div>
+					<?php //if there is no image set
+ 						if($row['images'] == ""){ ?>								<div class='announcement-image' style="background-image: url('lost-pictures/default.jpg')">
+ 									</div>
+ 
+ 						<?php }
+ 						else { ?>
+ 								
+ 							<div class='announcement-image' style="background-image: url('lost-pictures/<?php echo $row['images'] ?>')">
+ 							</div>
+ 
+ 				<?php } ?>
 					<h3><?php echo $row['nume'];?></h3>
 					<div class="announcement-actions">
 						
-						<!-- The Details Modal -->
-						<input type="button" name="details" value="Details" class="btn btn-details" id="b1"/>
-						<div id="myModal" class="modal">
-								<div class="modal-content">
-										<span class="close">&times;</span>
-										<form action="" method="post" enctype="multipart/form-data">
-											<h4>Name: <?php echo $row['nume'];?> </h4></br>
-											<h4>Category: <?php echo $row['dd1'];?>  </h4></br>
-											<h4>City: <?php echo $row['dd2'];?></h4></br>
-											<h4>Address: <?php echo $row['address'];?></h4></br>
-											<h4>Date: <?php echo $row['date'];?> </h4></br>
-											<h4>More details: <?php echo $row['specific_description'];?></h4></br>
-										</form>
-								</div>
-						</div>
-						<!-- /The Details Modal -->
 						
-						<!-- The Contact Modal -->
-						<input type="button" name="contact" value="Contact" class="btn btn-contact" id="b2">
-						<div id="myModal1" class="modal">
-							<div class="modal-content">
-							<span class="close">&times;</span>
-				    		<form action="ex.php" method="post">
-								<h5>First Name: </h5><input type="text" name="first_name"></br>
-								<h5>Last Name: </h5><input type="text" name="last_name"></br>
-								<h5>From: </h5><input type="text" name="email"></br>
-								<h5>To: </h5><input type="text" name="email_to"></br>
-								<h5>Message: </h5>
-								</br>
-								<textarea id="txtArea" rows="20" name="message" cols="30">
-								</textarea><br>
-								<input type="submit" name="submit" value="Send">
-							</form>
-							</div>
-						</div>
-
-						<!-- /The Contact Modal -->
-						
-						<!-- The Report Modal -->
-						<input type="button" name="report" value="Report" class="btn btn-report" id="b3">
-						<div id="myModal2" class="modal">
-							<div class="modal-content">
-								<span class="close">&times;</span>
-								<form action="report.php" method="post">
-									<h4>Please tell us why do you want to report this announce: </h4></br>
-									<input type="radio" name="group1" value="inp"> I think the content is inapropriate</br>
-									<input type="radio" name="group1" value="inp2"> I don't think this should be on this site</br>
-									<input type="radio" name="group1" value="inp3"> This object was stoled</br>
-									<input type="radio" name="group1" value="inp4"> This announce is more than once on this website</br>
-									<input type="radio" name="group1" value="inp5"> Other reason (Please specify down below)</br>
-							        </br><textarea placeholder="Why do you want to report this announce?" id="txtArea2" rows="20" name="message2" cols="30"></textarea><br>
-									<input type="submit" name="submit2" value="Submit report">
-								</form>
-							</div>
-						</div>
-						<!-- /The Report Modal -->
 					</div>
 					
 				</div>
@@ -259,11 +166,6 @@
     			endforeach;
 			?>
 		
-			
-			
-	
-					
-			
 		    <form action="anunturi.php">
                  <input type="submit" value="See all" id="seeall" >
             </form> 

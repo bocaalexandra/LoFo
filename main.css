@@ -140,25 +140,24 @@ body {
 	
 	font-size: 10px;
     font-family: Arial;
-    color: #fffbf3;
+    cursor:pointer; 
 	display: inline-block;
     text-shadow: 1px 1px 1px black;
-    padding: 6px 15px;
     border: 2px solid black;
     background-color: black;
     color: #fafafa;
     position: relative;
-    /*padding: 3px 12px 6px 12px !important;*/
+    padding: 3px 12px 6px 12px !important;
     font-size: 15px;
     line-height: 21px !important;
     -webkit-transition: all .13s;
     transition: all .13s;
     outline: 0 none !important;
+    opacity: .4;
     border: 0 !important;
     border-radius: 3px !important;
-	right: 730px;
-	margin-left:1500px;
-	bottom: 8px;
+	bottom: 13px;
+    left: 350px;
 
 
 }
@@ -310,122 +309,10 @@ body {
     height: 50px;
 }
 
-
-.c1 {
-    margin-top: 0px;
-    margin-left: 150px;
-    font-size: 9px;
-    font-family: "Arial Black", Gadget, sans-serif;
-    color: black;
-    background-color: #cefbef;
-}
-
-.c2 {
-    margin-top: 0px;
-    margin-left: 150px;
-    font-size: 9px;
-    font-family: "Arial Black", Gadget, sans-serif;
-    color: black;
-    background-color: #cefbef;
-}
-
-.c3 {
-    margin-top: 0px;
-    margin-left: 150px;
-    font-size: 9px;
-    font-family: "Arial Black", Gadget, sans-serif;
-    color: black;
-    background-color: #cefbef;
-}
-
-.c4 {
-    margin-top: 0px;
-    margin-left: 150px;
-    font-size: 9px;
-    font-family: "Arial Black", Gadget, sans-serif;
-    color: black;
-    background-color: #cefbef;
-}
-
-.c5 {
-    margin-top: 0px;
-    margin-left: 150px;
-    font-size: 9px;
-    font-family: "Arial Black", Gadget, sans-serif;
-    color: black;
-    background-color: #cefbef;
-}
-
 #footer {
     margin-top: 15px;
     text-align: center;
     text-shadow: 1px 0px 0px black;
-}
-
-#puppy {
-    margin-top: -194px;
-    margin-left: 150px;
-    font-size: 12px;
-    font-family: "Arial Black", Gadget, sans-serif;
-    color: black;
-    padding: 6px 15px;
-    border: 4px solid #ab1b3c;
-    background-color: #cefbef;
-}
-
-#watch {
-    margin-top: -180px;
-    margin-left: 150px;
-    font-size: 12px;
-    font-family: "Arial Black", Gadget, sans-serif;
-    color: black;
-    padding: 6px 15px;
-    border: 4px solid green;
-    background-color: #cefbef;
-}
-
-#keys {
-    margin-top: -180px;
-    margin-left: 150px;
-    font-size: 12px;
-    font-family: "Arial Black", Gadget, sans-serif;
-    color: black;
-    padding: 6px 15px;
-    border: 4px solid #ab1b3c;
-    background-color: #cefbef;
-}
-
-#phone {
-    margin-top: -180px;
-    margin-left: 150px;
-    font-size: 12px;
-    font-family: "Arial Black", Gadget, sans-serif;
-    color: black;
-    padding: 6px 15px;
-    border: 4px solid #ab1b3c;
-    background-color: #cefbef;
-}
-
-#doc {
-    margin-top: -180px;
-    margin-left: 150px;
-    font-size: 12px;
-    font-family: "Arial Black", Gadget, sans-serif;
-    color: black;
-    padding: 6px 15px;
-    border: 4px solid green;
-    background-color: #cefbef;
-}
-
-#toy {
-    margin-top: -180px;
-    margin-left: 150px;
-    font-size: 12px;
-    font-family: "Arial Black", Gadget, sans-serif;
-    color: black;
-    padding: 6px 15px;
-    border: 4px solid green;
-    background-color: #cefbef;
 }
 
 .anunturi {
@@ -444,6 +331,7 @@ body {
 }
 
 footer {
+    position: relative;
     text-align: center;
     width: 60%;
     display: inline-block;
@@ -456,7 +344,7 @@ footer {
     background: #ffffff;
     border-bottom: 2px solid #90A4AE;
     border-radius: 3px;
-	margin-left: 303px;
+	margin-left: 270px;
 }
 
 .leftSide {
@@ -479,10 +367,20 @@ footer {
     color: black;
 }
 
+
+#recent {
+    position: relative;
+    top:40px;
+    line-height:1;
+    opacity: .8;
+    font-family:'Lato';
+}
 .announcement-item{
+    position: relative;
+    margin: auto;
 	width: 50%;
 	/*float: left; */
-	margin-bottom: 30px; 
+	margin-bottom: 100px; 
 	/*padding: 0 15px; */
 	
 } 

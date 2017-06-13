@@ -14,10 +14,10 @@
 	
     $servername = "localhost";
 	$username = "root";
-    $password = "lostnfound";
+    $password = "";
     $db ='tehnologiiweb';
 	
-	$con=mysqli_connect("localhost","root","lostnfound","tehnologiiweb");
+	$con=mysqli_connect("localhost","root","","tehnologiiweb");
 	
 	$userid = mysqli_fetch_assoc(mysqli_query($con, "SELECT id FROM users WHERE usernameus= '".$usernameus."'"));
 
@@ -60,7 +60,7 @@
 <body>
 			
 	<div class="left-section">
-		<h3>My Profile</h3>
+		<h3 class = "title">My Profile</h3>
 
 		<form action="" method="post" enctype="multipart/form-data">
             <input type="file" name="file" accept="image/gif, image/jpeg, image/png, image/jpg" id="chooseFile">
@@ -91,8 +91,17 @@
 				<div class='announcement-item'>
 					<div class='announcement-type announcement-type-lost'><h4>Lost</h4>
 					</div>
-					<div class='announcement-image' style="background-image: url('lost-pictures/<?php echo $row['images'] ?>')">
-					</div>
+					<?php //if there is no image set
+ 						if($row['images'] == ""){ ?>								<div class='announcement-image' style="background-image: url('lost-pictures/default.jpg')">
+ 									</div>
+ 
+ 						<?php }
+ 						else { ?>
+ 								
+ 							<div class='announcement-image' style="background-image: url('lost-pictures/<?php echo $row['images'] ?>')">
+ 							</div>
+ 
+ 				<?php } ?>
 					<h3><?php echo $row['nume'];?></h3>
 					<div class="announcement-actions">
 						
@@ -165,8 +174,19 @@
 				<div class='announcement-item'>
 					<div class='announcement-type announcement-type-found'><h4>Found</h4>
 					</div>
-					<div class='announcement-image' style="background-image: url('found-pictures/<?php echo $row['images'] ?>')">
-					</div>
+					<?php //if there is no image set
+ 						if($row['images'] == ""){ ?>								<div class='announcement-image' style="background-image: url('found-pictures/default.jpg')">
+ 									</div>
+ 
+ 						<?php }
+ 						else { ?>
+ 								
+ 							<div class='announcement-image' style="background-image: url('found-pictures/<?php echo $row['images'] ?>')">
+ 							</div>
+ 
+ 				<?php } ?>
+
+
 					<h3><?php echo $row['nume'];?></h3>
 					<div class="announcement-actions">
 						
@@ -235,7 +255,7 @@
 	</div>
 	<?php
 		$usernameus = $_SESSION['sess_user'];
-        $con =  mysqli_connect("localhost","root","lostnfound","tehnologiiweb");
+        $con =  mysqli_connect("localhost","root","","tehnologiiweb");
         $query = mysqli_query($con,"SELECT images FROM users where usernameus = '".$usernameus."'");
 
         //while fetching rows from the database
