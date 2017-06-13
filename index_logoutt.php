@@ -15,6 +15,7 @@
     	echo "Connection failed: " . $e->getMessage();
     }
 
+
 ?>
 
 
@@ -43,11 +44,13 @@
         <div class="clear"></div>
         <!-- <div id="center-part"> -->
         <div class="searchBar">
-            <div class="searchItems">
-                <input type="text" placeholder="search..." required id="search">
-                <input type="button" value="Search" id="bsearch">
-                <input type="button" value="Advanced" id="adv" onclick="location.href='search.html';">
-            </div>
+            <form method="post" action="anunturi.php?go" id="searchform">
+                <div class="searchItems">
+
+                        <input type="text" placeholder="search..." required id="search" name="stext">
+                        <input type="submit" value="Search" id="bsearch" name="sb" >  
+                </div>
+            </form>
             <div class="userReporting">
                 <a href="lost.html" class="lostItem">
                     <p>report a lost item</p>
@@ -234,6 +237,7 @@
 	}
 
 	</script>
+
 </body>
 
 </html>
